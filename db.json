@@ -1,0 +1,14 @@
+{
+    "posts": [
+        {
+            "id": "1",
+            "title": "Learn Redux",
+            "content": "Good things"
+        },
+        {
+            "id": "2",
+            "title": "Slices ",
+            "content": "more slice"
+        }
+    ]
+}

@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       {/* <Counter></Counter>
-      <hr/>
+      <hr/>*/}
       <AddPost></AddPost>
-      <Posts></Posts> */}
+      <Posts></Posts> 
     </>
   )
 }
