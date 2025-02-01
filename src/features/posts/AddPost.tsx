@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addPost } from './postsSlics';
-import { nanoid } from '@reduxjs/toolkit';
 
 export const AddPost = () => {
     const [title, setTitle] = useState('');

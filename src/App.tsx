@@ -6,10 +6,10 @@ import Posts from './features/posts/Posts'
 function App() {
   return (
     <>
-      <Counter></Counter>
+      {/* <Counter></Counter>
       <hr/>
       <AddPost></AddPost>
-      <Posts></Posts>
+      <Posts></Posts> */}
     </>
   )
 }

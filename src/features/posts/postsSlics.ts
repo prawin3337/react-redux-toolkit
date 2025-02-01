@@ -27,6 +27,7 @@ const postSlice = createSlice({
 })
 
 // If change data structure in future.
-export const selectAllPosts = (state: any) => state.posts; 
+export const selectAllPosts = (state: any) => state.posts;
+
 export const { addPost } = postSlice.actions;
 export default postSlice.reducer;
