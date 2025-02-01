@@ -1,0 +1,21 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = [
+    { id: '1', title: 'Learn Redux', content: 'Good things' },
+    { id: '2', title: 'Slices ', content: 'more slice' }
+]
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {
+        addPost: (state, action) => {
+            state.push(action.payload);
+        }
+    }
+})
+
+// If change data structure in future.
+export const selectAllPosts = (state: any) => state.posts; 
+export const { addPost } = postSlice.actions;
+export default postSlice.reducer;
