@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addPost } from './postsSlics';
+import { addPost, addNewPost } from './postsSlics';
 
 export const AddPost = () => {
     const [title, setTitle] = useState('');
@@ -13,7 +13,7 @@ export const AddPost = () => {
             // const newPost = addPost({ id: nanoid(), title, content });
             // dispatch(newPost);
             // OR using toolkit prepared callback
-            dispatch(addPost(title, content));
+            dispatch(addNewPost({ title, body: content }));
 
             // reset input
             setTitle('');

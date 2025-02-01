@@ -15,6 +15,17 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
         return [...res.data]
     } catch(err) {
         console.log(err);
+        return err.message;
+    }
+})
+
+export const addNewPost = createAsyncThunk('posts/addPost', async (postData) => {
+    try {
+        const res = await axios.post(GET_POSTS, postData)
+        return res.data;
+    } catch (err) {
+        console.log(err);
+        return err.message;
     }
 })
 
@@ -39,6 +50,7 @@ const postSlice = createSlice({
     },
     extraReducers(builder) {
         builder
+            // Fetch post
             .addCase(fetchPosts.pending, (state) => {
                 console.log('loading');
                 state.status = 'loading'
@@ -49,6 +61,20 @@ const postSlice = createSlice({
                 state.posts = action.payload
             })
             .addCase(fetchPosts.rejected, (state, action: any) => {
+                console.log('failed');
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+            // Add Post
+            .addCase(addNewPost.pending, (state) => {
+                console.log('loading');
+                state.status = 'loading'
+            })
+            .addCase(addNewPost.fulfilled, (state, action: { payload: any }) => {
+                state.status = 'succeeded'
+                state.posts.push(action.payload)
+            })
+            .addCase(addNewPost.rejected, (state, action: any) => {
                 console.log('failed');
                 state.status = 'failed'
                 state.error = action.error.message
